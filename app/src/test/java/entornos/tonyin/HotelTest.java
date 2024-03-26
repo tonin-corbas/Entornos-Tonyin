@@ -68,7 +68,13 @@ public class HotelTest {
         hotel.registrarHabitacion(169, "Presidencial", 200.0);
         hotel.hacerReserva(101, usuario1);
         hotel.hacerReserva(169, usuario3);
+
+        assertEquals(1,hotel.reservasPorUsuario.get(usuario1.getNombreUsuario()).size());
+        assertEquals(1, hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).size());
+        assertEquals(169,hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(0).getNumeroHabitacion());
+        assertEquals(169,hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(1).getNumeroHabitacion());
     }
+
     @Test
     public void testVisualizarReservas() {
         App.Hotel hotel = new App().new Hotel();
