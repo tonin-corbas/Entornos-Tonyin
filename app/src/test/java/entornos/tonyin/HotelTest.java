@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class HotelTest {
     @Test
     public void testRegistrarUsuario() {
+        @SuppressWarnings("rawtypes")
         App.Hotel hotel = new App().new Hotel();
         hotel.registrarUsuario("usuario1", "usuario1@email.com");
         hotel.registrarUsuario("usuario2", "usuario2@email.com");
@@ -19,6 +20,7 @@ public class HotelTest {
 
     @Test
     public void testEliminarUsuario() {
+        @SuppressWarnings("rawtypes")
         App.Hotel hotel = new App().new Hotel();
         hotel.registrarUsuario("usuario1", "usuario1@email.com");
         hotel.registrarUsuario("usuario2", null);
@@ -69,10 +71,10 @@ public class HotelTest {
         hotel.hacerReserva(101, usuario1);
         hotel.hacerReserva(169, usuario3);
 
-        assertEquals(1,hotel.reservasPorUsuario.get(usuario1.getNombreUsuario()).size());
+        assertEquals(1, hotel.reservasPorUsuario.get(usuario1.getNombreUsuario()).size());
         assertEquals(1, hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).size());
-        assertEquals(169,hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(0).getNumeroHabitacion());
-        assertEquals(169,hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(1).getNumeroHabitacion());
+        assertEquals(169, hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(0).getNumeroHabitacion());
+        // assertEquals(169, hotel.reservasPorUsuario.get(usuario3.getNombreUsuario()).get(1).getNumeroHabitacion());
     }
 
     @Test
